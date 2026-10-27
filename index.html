@@ -97,6 +97,23 @@ section{padding:10px 0 30px}
 .cut::after{right:-16.5px;clip-path:inset(0 calc(50% - 2px) 0 0)}
 .pass-foot{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;font-size:14px}
 .pass-foot small{display:block;font-size:11px;opacity:.7}
+.xfer{margin-top:16px;padding:16px;background:var(--coral-l)}
+.xfer-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.xfer-head h3{margin:0;font-size:18px}
+.conf{font-size:12.5px;border:2px solid var(--ink);border-radius:8px;padding:0 8px;background:var(--washi);font-variant-numeric:tabular-nums}
+.legs{display:grid;gap:10px;margin-top:12px}
+@media (min-width:700px){.legs{grid-template-columns:1fr 1fr}}
+.leg{border:var(--line);border-radius:18px;background:var(--washi);padding:10px 14px}
+.leg-top{display:flex;align-items:center;gap:8px;font-size:14px}
+.leg-top .pass-dir{font-size:12.5px;padding:0 10px}
+.leg big{display:block;font-size:22px;line-height:1.3;margin-top:4px;font-variant-numeric:tabular-nums}
+.leg p{margin:2px 0 0;font-size:13px}
+.meet{margin-top:12px;border:var(--line);border-radius:18px;background:var(--washi);overflow:hidden}
+.meet svg{display:block;width:100%;height:auto;border-bottom:3px dashed var(--ink)}
+.meet ol{margin:0;padding:10px 14px 12px 34px;font-size:13.5px}
+.meet li{padding:2px 0}
+.xfer .kv{margin-top:12px;background:var(--washi)}
+.xfer .btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .status{font-size:12px;border:2px solid var(--ink);border-radius:8px;padding:0 7px;background:var(--washi)}
 
 /* ---------- 每日行程 ---------- */
@@ -144,7 +161,7 @@ section{padding:10px 0 30px}
 .day-foot{margin-top:4px;padding:12px 14px;font-size:13.5px;border:3px dashed var(--ink);border-radius:18px;background:var(--water-l)}
 
 .tag{display:inline-flex;align-items:center;font-size:12.5px;line-height:1.55;padding:0 10px;border:2px solid var(--ink);border-radius:999px;white-space:nowrap}
-.mv-plane{background:var(--water)}.mv-grab{background:var(--green)}.mv-walk{background:var(--yellow)}.mv-shuttle{background:var(--coral)}.mv-car{background:var(--green)}
+.mv-plane{background:var(--water)}.mv-grab{background:var(--green)}.mv-walk{background:var(--yellow)}.mv-shuttle{background:var(--coral)}.mv-car{background:var(--green)}.mv-bts{background:var(--green-l)}
 .mv-hotel{background:var(--washi);border-style:dashed}
 .st{display:inline-flex;align-items:center;gap:5px;font-size:12px;line-height:1.55;padding:0 8px;border:2px solid var(--ink);border-radius:8px;background:var(--washi);white-space:nowrap}
 .st::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid var(--ink)}
@@ -431,8 +448,10 @@ html.lock{overflow:hidden}
     <div class="card notice">
       <h3>出發前小提醒</h3>
       <ul>
-        <li><span class="k" style="background:var(--green)">已預訂</span><span>11/14（六）19:45 Supanniga Eating Room – Tha Tien，2 位戶外座位（已付訂金；如需取消請於 48 小時前，即 11/12 19:45 前）；機場往返接送（透過飯店預訂）</span></li>
-        <li><span class="k" style="background:var(--yellow)">待預訂</span><span>11/16 Akira Back 雙人晚餐</span></li>
+        <li><span class="k" style="background:var(--green)">已預訂</span><span>11/14（六）19:45 Supanniga Eating Room – Tha Tien，2 位戶外座位（已付訂金；如需取消請於 48 小時前，即 11/12 19:45 前）；飯店機場往返接送（確認編號 82702515，11/18 15:30 自飯店出發）</span></li>
+        <li><span class="k" style="background:var(--water)">入境</span><span>出發前 3 天內（11/10–11/13）要先上網填好<a href="https://tdac.immigration.go.th/arrival-card/" target="_blank" rel="noopener">泰國數位入境卡 TDAC ↗</a></span></li>
+        <li><span class="k" style="background:var(--green)">已預約</span><span>11/15（日）17:00 Sanctuary Bangkok 屋頂酒吧（InterContinental Bangkok Sukhumvit 34 樓），遲到超過 15 分鐘座位可能被釋出</span></li>
+        <li><span class="k" style="background:var(--yellow)">待預訂</span><span>11/13 Baannok Bangkok 晚餐、11/16 Akira Back 雙人晚餐</span></li>
         <li><span class="k" style="background:var(--water)">商務</span><span>11/16、11/17 會議 09:00–17:00，地點在飯店；兩天午餐皆由主辦單位安排於飯店內用餐。11/17 晚間同事晚宴。</span></li>
         <li><span class="k" style="background:var(--coral)">早餐</span><span>住宿期間每天都有飯店早餐（11/14–11/18）</span></li>
         <li><span class="k">時間</span><span>行程時間皆為曼谷當地時間；航班起降為各機場當地時間（台灣比曼谷快 1 小時）。航班時間為暫定，請以正式機票為準。</span></li>
@@ -475,11 +494,59 @@ html.lock{overflow:hidden}
         <div class="cut"></div>
         <div class="pass-foot">
           <div><small>航班</small>CI840</div>
-          <div><small>到機場</small>15:30–16:00</div>
+          <div><small>飯店出發</small>15:30</div>
           <div><small>狀態</small><span class="status">待確認</span></div>
         </div>
       </article>
     </div>
+
+    <article class="card xfer" aria-labelledby="xferTitle">
+      <div class="xfer-head"><h3 id="xferTitle">飯店機場接送（已預訂）</h3><span class="conf">確認編號 82702515</span></div>
+      <div class="legs">
+        <div class="leg"><div class="leg-top"><span class="pass-dir">接機</span>11/13（五）</div>
+          <big>CI839 抵達 17:35</big><p>蘇凡納布機場 → 飯店・2 位</p></div>
+        <div class="leg"><div class="leg-top"><span class="pass-dir" style="background:var(--yellow)">送機</span>11/18（三）</div>
+          <big>15:30 飯店出發</big><p>飯店 → 蘇凡納布機場・2 位</p></div>
+      </div>
+      <div class="meet">
+        <svg viewBox="0 0 360 120" role="img" aria-label="接機集合點示意：入境大廳 2 樓，從 Exit B 出來右轉到 Gate 5" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="0" y="0" width="360" height="120" fill="#FDF4DC" stroke="none"/>
+          <path d="M0 92 H360" stroke-width="2.5"/>
+          <text x="12" y="22" fill="#3E3A39" stroke="none" font-size="12" font-family="Huninn, sans-serif">2 樓入境大廳</text>
+          <rect x="30" y="38" width="62" height="54" rx="8" fill="#A8D3E6"/>
+          <path d="M61 38 V92" stroke-width="2.5"/>
+          <text x="61" y="110" text-anchor="middle" fill="#3E3A39" stroke="none" font-size="13" font-family="Huninn, sans-serif">Exit B</text>
+          <g class="a-drift"><path d="M112 66 H200" stroke-dasharray="7 8"/><path d="M192 58 L202 66 L192 74"/></g>
+          <text x="156" y="52" text-anchor="middle" fill="#3E3A39" stroke="none" font-size="12" font-family="Huninn, sans-serif">出來右轉</text>
+          <rect x="218" y="30" width="56" height="22" rx="5" fill="#F6D27A"/>
+          <text x="246" y="46" text-anchor="middle" fill="#3E3A39" stroke="none" font-size="12" font-family="Huninn, sans-serif">GATE 5</text>
+          <g class="a-floaty">
+            <rect x="282" y="34" width="66" height="24" rx="5" fill="#FFFCF6"/>
+            <text x="315" y="50" text-anchor="middle" fill="#3E3A39" stroke="none" font-size="10" font-family="Huninn, sans-serif">MARRIOTT</text>
+            <path d="M308 58 V64 M322 58 V64"/>
+            <circle cx="315" cy="72" r="7" fill="#F2A497"/>
+            <path d="M304 92 Q315 76 326 92" fill="#F2A497"/>
+          </g>
+          <text x="315" y="110" text-anchor="middle" fill="#3E3A39" stroke="none" font-size="12" font-family="Huninn, sans-serif">接機人員</text>
+        </svg>
+        <ol>
+          <li>通關、領行李後，從 <b>Exit B</b>（或 C）走出海關</li>
+          <li>在 2 樓入境大廳<b>右轉</b>，走到 <b>GATE 5</b></li>
+          <li>找舉著「Marriott Marquis Queen's Park」牌子的飯店人員，會直接帶你們上車</li>
+        </ol>
+      </div>
+      <dl class="kv">
+        <dt>車型</dt><dd>Mercedes-Benz E-Class</dd>
+        <dt>費用</dt><dd>單程 THB 3,000（淨價），掛房帳</dd>
+        <dt>找不到人</dt><dd>值班經理 +66 2 059 5555、禮賓部 +66 2 059 5740；或到 Exit A／B 對面的 THA 泰國飯店協會櫃台求助</dd>
+        <dt>航班異動</dt><dd>請至少於抵達前 24 小時 Email 通知；24 小時內請直接致電飯店</dd>
+        <dt>取消</dt><dd>需在預約時間 6 小時前聯絡禮賓部；臨時取消或未出現收取全額</dd>
+      </dl>
+      <div class="btn-row">
+        <a class="maplink" href="tel:+6620595555">撥打飯店 +66 2 059 5555</a>
+        <a class="maplink" href="tel:+6620595740">撥打禮賓部 +66 2 059 5740</a>
+      </div>
+    </article>
   </section>
 
   <!-- ========== 每日行程 ========== -->
@@ -490,7 +557,7 @@ html.lock{overflow:hidden}
     </div>
     <div class="legend" aria-label="圖例">
       <span class="lbl">交通</span>
-      <span class="tag mv-plane">飛機</span><span class="tag mv-grab">Grab／搭車</span><span class="tag mv-walk">步行</span><span class="tag mv-shuttle">飯店接送</span><span class="tag mv-hotel">飯店內</span>
+      <span class="tag mv-plane">飛機</span><span class="tag mv-grab">Grab／搭車</span><span class="tag mv-bts">BTS</span><span class="tag mv-walk">步行</span><span class="tag mv-shuttle">飯店接送</span><span class="tag mv-hotel">飯店內</span>
       <span class="must-mini" aria-label="必去">必去</span>
       <span class="hint">點有虛線的地點名稱可打開景點小卡；左右滑動也可以切換日期</span>
     </div>
@@ -541,16 +608,16 @@ html.lock{overflow:hidden}
         <h3>曼谷萬豪侯爵皇后公園酒店</h3>
         <div class="en">Bangkok Marriott Marquis Queen's Park</div>
         <dl class="info">
-          <dt>入住</dt><dd>11/13（五）約 20:00 Check-in（搭飯店機場接送）</dd>
-          <dt>退房</dt><dd>11/18（三）11:30–12:00 Check-out，寄放行李；14:00 搭飯店接送前往機場</dd>
+          <dt>入住</dt><dd>11/13（五）約 19:00 Check-in（搭飯店機場接送）</dd>
+          <dt>退房</dt><dd>11/18（三）11:30–12:00 Check-out，寄放行李；15:30 搭飯店接送前往機場</dd>
           <dt>住宿</dt><dd>5 晚・2 位</dd>
           <dt>早餐</dt><dd>住宿期間每天含飯店早餐</dd>
           <dt>地點</dt><dd>Sukhumvit Soi 22，Phrom Phong 一帶</dd>
         </dl>
         <div class="facil" aria-label="這趟會用到的館內設施">
           <button type="button" style="--fc:var(--water)" data-place="hotel" data-when="11/13（五）– 11/18（三）5 晚"><i></i>飯店與早餐<small>早餐每天含</small></button>
-          <button type="button" style="--fc:var(--coral)" data-place="tearoom" data-when="11/13 晚餐・11/18 午餐"><i></i>The Siam Tea Room<small>11/13 晚餐・11/18 午餐</small></button>
-          <button type="button" style="--fc:var(--green)" data-place="pool" data-when="11/15（日）13:30 – 18:00"><i></i>泳池與館內設施<small>11/15 下午</small></button>
+          <button type="button" style="--fc:var(--coral)" data-place="tearoom" data-when="11/18（三）12:00 – 13:00 午餐"><i></i>The Siam Tea Room<small>11/18 午餐</small></button>
+          <button type="button" style="--fc:var(--green)" data-place="pool" data-when="11/15（日）13:30 – 16:15、11/18（三）09:30 – 11:30"><i></i>泳池與館內設施<small>11/15 下午・11/18 上午</small></button>
           <div style="--fc:var(--washi)"><i></i>商務會議・會議午餐<small>11/16–17 09:00–17:00</small></div>
           <button type="button" style="--fc:var(--yellow)" data-place="akira" data-when="11/16（一）18:30 – 20:30"><i></i>Akira Back（37 樓）<small>11/16 18:30</small></button>
           <button type="button" style="--fc:var(--water)" data-place="abar" data-when="11/16（一）20:30 – 21:30（可選）"><i></i>ABar Rooftop（38 樓）<small>11/16 可選</small></button>
@@ -666,8 +733,24 @@ html.lock{overflow:hidden}
       hours:[['每日','08:00–17:00']],
       map:'Rung Rueang Pork Noodle Sukhumvit 26',web:['https://guide.michelin.com/tw/zh_TW/bangkok-region/bangkok/restaurant/guay-tiew-mu-rung-rueang','米其林指南']},
     pool:{name:'飯店泳池與館內設施',en:"Bangkok Marriott Marquis Queen's Park",area:'飯店內',icon:'pool',c:'var(--water)',
-      feats:['11/15 下午留給自己，在飯店泳池與館內設施悠閒度過','不用出門，也能順便準備隔天的會議'],
+      feats:['11/15 下午與 11/18 上午，在飯店泳池與館內設施悠閒度過','不用出門，輕鬆享受飯店時光'],
       hours:[['開放時間','以飯店公告為準（入住時可向櫃台確認）']]},
+    sanctuary:{name:'Sanctuary Bangkok',en:'InterContinental Bangkok Sukhumvit 34 樓',area:'Sukhumvit・近 BTS Thong Lo',icon:'cheers',c:'var(--green)',
+      feats:['被綠意包圍的半露天屋頂酒吧，弧形木屋頂帶有泰式建築元素','主打用在地食材做的泰式風味調酒，例如以泰國甜點 Luk Chup 為靈感的調酒','獲 Tatler 2026 泰國最佳酒吧「最佳設計」','交通：BTS Thong Lo 站 4 號出口步行約 7 分鐘'],
+      hours:[['每日','17:00 起營業（11/15 為週日）'],['訂位','遲到超過 15 分鐘，座位可能會被釋出']],
+      alert:['已預約','11/15（日）17:00，請準時抵達。'],
+      mapUrl:'https://maps.app.goo.gl/NFgo6trvQXmnmNNm6',web:['https://www.sanctuarybangkok.com/','酒吧官網']},
+    pickup:{name:'飯店接機',src:'資料來源：飯店禮賓部 2026/9/29 接送確認信',en:'蘇凡納布機場 → 飯店',area:'確認編號 82702515',icon:'plane',c:'var(--water)',
+      feats:['出海關後走 Exit B（或 C），在 2 樓入境大廳右轉','到 GATE 5，找舉著「Marriott Marquis Queen\'s Park」牌子的接機人員','人員會直接帶你們上車前往飯店'],
+      hoursLabel:'接送資訊',hours:[['航班','CI839・預計 17:35 抵達'],['人數','2 位'],['車型','Mercedes-Benz E-Class'],['費用','單程 THB 3,000（淨價），掛房帳'],['找不到人','值班經理 +66 2 059 5555、禮賓部 +66 2 059 5740'],['取消','6 小時前通知禮賓部；臨時取消或未出現收全額']],
+      alert:['航班異動要通知','抵達前 24 小時以上請 Email 通知；24 小時內請直接致電飯店，以免被收費。']},
+    dropoff:{name:'飯店送機',src:'資料來源：飯店禮賓部 2026/9/29 接送確認信',en:'飯店 → 蘇凡納布機場',area:'確認編號 82702515',icon:'suitcase',c:'var(--yellow)',
+      feats:['11/18（三）15:30 從飯店大廳出發（比飯店原建議的 16:00 提早 30 分鐘）','建議 15:15 前帶著行李到大廳等候'],
+      hoursLabel:'接送資訊',hours:[['航班','CI840（飯店確認信寫起飛 18:35）'],['人數','2 位'],['車型','Mercedes-Benz E-Class'],['費用','單程 THB 3,000（淨價），掛房帳'],['聯絡','禮賓部 +66 2 059 5740'],['取消','6 小時前通知禮賓部；臨時取消或未出現收全額']]},
+    baannok:{name:'Baannok Bangkok',en:'บ้านนอกเข้ากรุง・VIVRE Building 2 樓',area:'Lang Suan Road・近 BTS Chit Lom',icon:'bowl',c:'var(--coral)',
+      feats:['米其林指南收錄的泰國東北呵叻（Khorat）風味料理，甜度調整得更順口','推薦：呵叻酸甜香腸沙拉、大河蝦呵叻炒米粉（Phat Mi Khorat）、辛香蔬菜湯','強調產地直送食材，價位親民（米其林標示 ฿฿）','BTS Chit Lom 站步行約 3 分鐘'],
+      hours:[['每日','11:00–22:00'],['訂位','米其林指南註明「務必事先訂位」，週五、六晚上尤其熱門'],['電話','+66 63 934 1416']],
+      mapUrl:'https://maps.app.goo.gl/dJZS7ti6PtU2PcPB9',web:['https://guide.michelin.com/en/bangkok-region/bangkok/restaurant/baannok-bangkok','米其林指南']},
     kruakhunpuk:{name:'Krua Khun Puk',en:'ครัวคุณปุ๊ก・Sukhumvit Soi 11/1',area:'Nana／Asok 一帶',icon:'bowl',c:'var(--green)',
       feats:['在地人氣的平價泰式家常菜館，用餐時段常需排隊','推薦：燉豬肉粿條、打拋、腰果雞','距飯店有段距離，需搭車前往'],
       hours:[['每日','08:00–04:00（依網路資訊，建議出發前再確認）']],
@@ -683,19 +766,21 @@ html.lock{overflow:hidden}
   };
 
   /* ---------- 資料 ---------- */
-  const MV = {plane:['飛機','mv-plane'],grab:['Grab','mv-grab'],walk:['步行','mv-walk'],shuttle:['飯店接送','mv-shuttle'],car:['搭車','mv-car'],hotel:['飯店內','mv-hotel']};
+  const MV = {plane:['飛機','mv-plane'],grab:['Grab','mv-grab'],walk:['步行','mv-walk'],shuttle:['飯店接送','mv-shuttle'],car:['搭車','mv-car'],bts:['BTS','mv-bts'],hotel:['飯店內','mv-hotel']};
   const ST = {booked:'已預訂',book:'待預訂',confirm:'待確認',pick:'待選定',cand:'候選',opt:'可選',ontime:'準時出發'};
   const COLORS = ['var(--coral)','var(--yellow)','var(--water)','var(--green)','var(--coral)','var(--yellow)'];
 
-  const PICKUP = '已透過飯店預訂機場接送';
+  const PICKUP = '已透過飯店預訂機場接送・確認編號 82702515';
   const DAYS = [
-    {date:'2026-11-13',md:'11/13',d:'13',w:'五',title:'抵達曼谷',sub:'機場 → 飯店 → 泰式晚餐',chip:'輕鬆入住',icon:'plane',items:[
+    {date:'2026-11-13',md:'11/13',d:'13',w:'五',title:'抵達曼谷',sub:'機場 → 飯店 → Baannok 泰式晚餐',chip:'晚餐需訂位',icon:'plane',items:[
       {t:'14:45 → 17:35',title:'CI839 高雄 → 曼谷',note:'高雄 14:45 起飛（台灣時間）・曼谷 17:35 抵達',mv:['plane'],st:['confirm'],cat:'move'},
-      {t:'17:35 – 18:45',title:'入境、領取行李',note:'預留緩衝',cat:'rest'},
-      {t:'18:45 – 20:00',title:"前往 Bangkok Marriott Marquis Queen's Park",mv:['shuttle'],memo:PICKUP,cat:'move',place:'hotel'},
-      {t:'20:00 – 20:30',title:'飯店 Check-in',note:'休息',cat:'rest'},
-      {t:'20:30 – 21:45',title:'The Siam Tea Room 晚餐',note:'飯店內泰式料理',mv:['hotel'],cat:'food',place:'tearoom'},
-      {t:'21:45 後',title:'回房休息',note:'不安排跨區活動',cat:'rest'}
+      {t:'17:35 – 18:15',title:'入境、領取行李',note:'出海關走 Exit B，到 2 樓入境大廳右轉',cat:'rest'},
+      {t:'18:15 – 19:00',title:'飯店接機前往飯店',place:'pickup',note:'GATE 5 找舉 Marriott Marquis Queen\'s Park 牌子的接機人員',mv:['shuttle'],memo:PICKUP,cat:'move'},
+      {t:'19:00 – 19:10',title:'飯店 Check-in、放行李',note:'快速入住後出發',cat:'rest',place:'hotel'},
+      {t:'19:10 – 19:30',title:'搭 BTS 前往 Baannok Bangkok',note:'Phrom Phong 站 → Chit Lom 站（往 Siam 方向 4 站，不需轉車），出站步行約 3 分鐘',mv:['walk','bts'],cat:'move'},
+      {t:'19:30 – 21:00',title:'Baannok Bangkok 晚餐',place:'baannok',note:'米其林指南推薦・呵叻（Khorat）風味泰菜',st:['book'],cat:'food',must:true},
+      {t:'21:00 – 21:30',title:'搭 BTS 返回飯店',note:'Chit Lom 站 → Phrom Phong 站',mv:['bts','walk'],cat:'move'},
+      {t:'21:30 後',title:'回房休息',cat:'rest'}
     ]},
     {date:'2026-11-14',md:'11/14',d:'14',w:'六',title:'ICONSIAM × 鄭王廟夜景',sub:'在地美食、購物與已預訂河岸晚餐',chip:'19:45 晚餐已訂',bf:true,icon:'temple',
       foot:'19:45 入座時已入夜，主要欣賞鄭王廟點燈夜景。戶外座位請留意天候與現場安排。',items:[
@@ -711,15 +796,18 @@ html.lock{overflow:hidden}
       {t:'19:45 – 21:15',title:'Supanniga Eating Room – Tha Tien',note:'2 人戶外座位・欣賞鄭王廟點燈夜景',alert:'已付訂金・如需取消請於 48 小時前（11/12 19:45 前）',st:['booked'],cat:'food',must:true,place:'supanniga'},
       {t:'21:15 – 22:15',title:'返回飯店',mv:['grab'],cat:'move'}
     ]},
-    {date:'2026-11-15',md:'11/15',d:'15',w:'日',title:'在地美食與慢生活',sub:'Phrom Phong・Sukhumvit 26・飯店泳池',chip:'低步行量',bf:true,icon:'bowl',items:[
+    {date:'2026-11-15',md:'11/15',d:'15',w:'日',title:'在地美食與慢生活',sub:'Sukhumvit 26・飯店泳池・Sanctuary 屋頂酒吧',chip:'低步行量',bf:true,icon:'bowl',items:[
       {t:'09:00 – 10:00',title:'飯店早餐',place:'hotel',note:'悠閒出發',mv:['hotel'],cat:'food'},
       {t:'10:15 – 11:15',title:'Sukhumvit 特色咖啡館',note:'店家待選定',st:['pick'],cat:'food'},
       {t:'11:30 – 12:30',title:'Rung Rueang 豬肉湯麵',note:'在地午餐，Sukhumvit 26',cat:'food',must:true,place:'rungrueang'},
       {t:'12:30 – 13:30',title:'回飯店休息',note:'避開高溫',cat:'rest'},
-      {t:'13:30 – 18:00',title:'在飯店享受泳池與設施',place:'pool',note:'泳池、館內設施，悠閒度過下午；也可順便準備隔日會議',mv:['hotel'],cat:'rest'},
-      {t:'18:00 – 19:30',title:'Krua Khun Puk 泰式晚餐',place:'kruakhunpuk',note:'需搭車；可改飯店周邊',mv:['car'],st:['cand'],cat:'food'},
-      {t:'19:30 – 20:00',title:'返回飯店',note:'依實際用餐地點',cat:'move'},
-      {t:'20:00 後',title:'休息',note:'準備隔日會議',cat:'rest'}
+      {t:'13:30 – 16:15',title:'在飯店享受泳池與設施',place:'pool',note:'泳池、館內設施，悠閒度過下午',mv:['hotel'],cat:'rest'},
+      {t:'16:15 – 16:45',title:'梳洗、換裝',cat:'rest'},
+      {t:'16:45 – 17:00',title:'前往 InterContinental Bangkok Sukhumvit',note:'近 BTS Thong Lo 站',mv:['grab'],cat:'move'},
+      {t:'17:00 – 18:30',title:'Sanctuary Bangkok 屋頂酒吧',place:'sanctuary',note:'34 樓・泰式風味調酒',alert:'遲到超過 15 分鐘，保留的座位可能會被釋出',st:['booked'],cat:'view',must:true},
+      {t:'18:45 – 20:00',title:'Krua Khun Puk 泰式晚餐',place:'kruakhunpuk',note:'從酒吧搭車前往；也可改在 Thong Lo 或飯店周邊用餐',mv:['car'],st:['cand'],cat:'food'},
+      {t:'20:00 – 20:30',title:'返回飯店',note:'依實際用餐地點',mv:['grab'],cat:'move'},
+      {t:'20:30 後',title:'休息',note:'準備隔日會議',cat:'rest'}
     ]},
     {date:'2026-11-16',md:'11/16',d:'16',w:'一',title:'商務會議 × 精緻雙人晚餐',sub:'飯店內會議・Akira Back・ABar Rooftop',chip:'晚餐待預訂',bf:true,icon:'cheers',items:[
       {t:'07:00 – 08:00',title:'飯店早餐',place:'hotel',mv:['hotel'],cat:'food'},
@@ -742,15 +830,15 @@ html.lock{overflow:hidden}
       {t:'18:30 – 21:00',title:'與同事參加晚宴',note:'時間／地點待確認',st:['confirm'],cat:'food',must:true},
       {t:'21:00 後',title:'返回飯店',cat:'move'}
     ]},
-    {date:'2026-11-18',md:'11/18',d:'18',w:'三',title:'悠閒早午餐與返程',sub:'飯店周邊 → BKK 機場',chip:'預留交通緩衝',bf:true,icon:'suitcase',items:[
+    {date:'2026-11-18',md:'11/18',d:'18',w:'三',title:'享受飯店時光與返程',sub:'飯店設施 → BKK 機場',chip:'15:30 飯店出發',bf:true,icon:'suitcase',items:[
       {t:'08:30 – 09:30',title:'飯店早餐',place:'hotel',mv:['hotel'],cat:'food'},
-      {t:'09:30 – 10:30',title:'整理行李、休息',cat:'rest'},
-      {t:'10:30 – 11:30',title:'周邊咖啡或輕鬆散步',note:'不安排商場',mv:['walk'],cat:'view'},
+      {t:'09:30 – 11:30',title:'享用飯店設施',place:'pool',note:'泳池、館內設施悠閒度過到退房；記得預留時間整理行李',mv:['hotel'],cat:'rest'},
       {t:'11:30 – 12:00',title:'Check-out、寄放行李',place:'hotel',cat:'rest'},
       {t:'12:00 – 13:00',title:'The Siam Tea Room 輕午餐',place:'tearoom',note:'飯店內',mv:['hotel'],cat:'food'},
-      {t:'13:00 – 14:00',title:'取行李、準備接送',cat:'rest'},
-      {t:'14:00 – 14:30',title:'出發前往 BKK 機場',mv:['shuttle'],st:['ontime'],memo:PICKUP,cat:'move'},
-      {t:'15:30 – 16:00',title:'預估抵達機場',note:'視交通狀況',cat:'move'},
+      {t:'13:00 – 15:00',title:'飯店內悠閒時光',note:'可在 Lobby Lounge 小憩',mv:['hotel'],cat:'rest'},
+      {t:'15:00 – 15:30',title:'取行李、到大廳等候接送',cat:'rest'},
+      {t:'15:30 – 16:30',title:'飯店送機前往 BKK 機場',place:'dropoff',note:'15:30 自飯店出發',mv:['shuttle'],st:['ontime'],memo:PICKUP,cat:'move'},
+      {t:'約 16:30',title:'抵達機場、辦理報到',note:'預估，視交通狀況',cat:'move'},
       {t:'18:40 → 22:55',title:'CI840 曼谷 → 高雄',note:'曼谷 18:40 起飛・高雄 22:55 抵達（台灣時間）',mv:['plane'],st:['confirm'],cat:'move'}
     ]}
   ];
@@ -881,10 +969,13 @@ html.lock{overflow:hidden}
   const TODO = [
     {g:'餐廳預約', c:'var(--coral)', items:[
       {id:'supanniga', t:'Supanniga Eating Room – Tha Tien', m:'11/14（六）19:45・戶外雙人座位・已預訂並付訂金；如需取消請於 11/12 19:45 前', def:true},
+      {id:'sanctuary', t:'Sanctuary Bangkok 屋頂酒吧', m:'11/15（日）17:00・已預約', def:true},
+      {id:'baannok', t:'Baannok Bangkok 晚餐', m:'11/13（五）19:30・2 位'},
       {id:'akira', t:'Akira Back 雙人晚餐', m:'11/16（一）18:30・飯店 37 樓'}
     ]},
-    {g:'航班', c:'var(--water)', items:[
-      {id:'flight', t:'確認 CI839／CI840 正式時刻與航廈', m:'目前為參考航班時刻'}
+    {g:'航班與入境', c:'var(--water)', items:[
+      {id:'flight', t:'確認 CI839／CI840 正式時刻與航廈', m:'目前為參考航班時刻；飯店確認信寫 CI840 18:35 起飛'},
+      {id:'tdac', t:'填寫泰國數位入境卡 TDAC', m:'抵達前 3 天內（11/10–11/13）上網填寫，2 人都要填'}
     ]},
     {g:'工作與待選', c:'var(--green)', items:[
       {id:'dinner17', t:'確認 11/17 同事晚宴時間與地點', m:'會議 09:00–17:00 於飯店，已確定'},
@@ -934,7 +1025,7 @@ html.lock{overflow:hidden}
   function placeHTML(id, when){
     const p = PLACES[id];
     const kv = rows => `<dl class="kv">${rows.map(r => `<dt>${r[0]}</dt><dd>${r[1]}</dd>`).join('')}</dl>`;
-    const links = [p.map ? `<a class="maplink" href="${MAP(p.map)}" target="_blank" rel="noopener">Google 地圖 ↗</a>` : '',
+    const links = [(p.mapUrl || p.map) ? `<a class="maplink" href="${p.mapUrl || MAP(p.map)}" target="_blank" rel="noopener">Google 地圖 ↗</a>` : '',
                    p.web ? `<a class="maplink" href="${p.web[0]}" target="_blank" rel="noopener">${p.web[1]} ↗</a>` : ''].join('');
     return `<div class="grip" aria-hidden="true"></div>
       <div class="sheet-head" style="--pc:${p.c}">
@@ -945,9 +1036,9 @@ html.lock{overflow:hidden}
       ${when ? `<div class="when"><b>這次安排</b><span>${when}</span></div>` : ''}
       ${p.alert ? `<div class="blk alert"><strong>${p.alert[0]}</strong>${p.alert[1]}</div>` : ''}
       <div class="blk" style="--pc:${p.c}"><h4 style="--bc:var(--green)">特色</h4><ul class="feats">${p.feats.map(t => `<li>${t}</li>`).join('')}</ul></div>
-      <div class="blk"><h4>營業時間</h4>${kv(p.hours)}</div>
+      <div class="blk"><h4>${p.hoursLabel || '營業時間'}</h4>${kv(p.hours)}</div>
       ${links ? `<div class="links">${links}</div>` : ''}
-      <p class="src">營業資訊查詢於 2026 年 10 月，可能異動，出發前建議再確認。</p>`;
+      <p class="src">${p.src || '營業資訊查詢於 2026 年 10 月，可能異動，出發前建議再確認。'}</p>`;
   }
   function openPlace(id, when){
     if (!PLACES[id]) return;
